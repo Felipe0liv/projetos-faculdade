@@ -1,1 +1,15 @@
+//Cálculo de Fatorial: Crie um programa que calcule e imprima o fatorial de um número inteiro fornecido pelo usuário.
 
+#include <stdio.h>
+
+int main() {
+    int n, x=1;
+    scanf("%d", &n);
+
+    for (int i = n; i >=1; i--) {
+        x = x * i;       
+    }
+    
+  printf("%d ", x);
+  return 0;
+}
