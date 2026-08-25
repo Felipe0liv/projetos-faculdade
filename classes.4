@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class circulo {
+public:
+ double raio = 10;
+
+
+ double calcularArea() {
+ return 3*(raio*raio);
+ }
+
+ double calcularCircunferencia() {
+ return 2 * 3 * raio;
+ }
+
+ //bool ehMaiorQue(Circulo outro)) {
+ //return largura == altura;
+ //}
+
+ void exibirInfo() {
+ cout << "Área: " << calcularArea() << endl;
+ cout << "Perímetro: " << ccalcularCircunferencia() << endl;
+ //cout << "É maior? " << ehMaiorQue(Circulo outro)) << endl;
+ }
+};
+
+
+int main() {
+ circulo circ1, circ2;
+
+ circ1.raio = 12;
+
+ circ2.raio = 15;
+
+ cout << "Circulo 1:" <<  endl;
+ circ1.exibirInfo();
+
+ cout << "\nCirculo 2:" << endl;
+ circ2.exibirInfo();
+
+ return 0;
+}
