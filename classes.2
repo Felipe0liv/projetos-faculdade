@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class livro {
+public:
+ string titulo;
+ string autor;
+ int paginas;
+
+ void exibirLivro() {
+ cout << titulo << " " << autor << " " << paginas << endl;
+ }
+ 
+};
+int main() {
+ 
+ livro livro1, livro2, livro3;
+
+
+ livro1.titulo = "naruto";
+ livro1.autor = "sasuke";
+ livro1.paginas = "2000";
+
+ livro2.titulo = "luffy";
+ livro2.autor = "zoro";
+ livro2.paginas = "200000";
+
+ livro3.titulo = "goku";
+ livro3.autor = "gohan";
+ livro3.paginas = "500";
+
+
+ livro1.exibirLivro();
+ livro2.exibirLivro();
+ livro3.exibirLivro();
+
+ return 0;
+}
