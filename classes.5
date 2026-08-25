@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class produto {
+public:
+ string nome;
+ double  preco, quantidade,valor;
+
+ string  produtos() {
+ return nome;
+ }
+
+ double valor() {
+ valor = quantidade * preco;
+
+ return valor;
+ }
+
+ double maiscaro(){
+
+ }
+
+/* void exibirAluno() {
+ cout << nome << " - Média: " << calcularMedia()
+ << " - Status: " << obterStatus() << endl;
+ }
+};
+
+
+int main() {
+ // Array de 3 alunos
+ Aluno alunos[3];
+
+ // Preenchendo os dados
+ alunos[0].nome = "Ana";
+ alunos[0].nota1 = 8.5;
+ alunos[0].nota2 = 7.0;
+ alunos[0].nota3 = 9.0;
+
+ alunos[1].nome = "Bruno";
+ alunos[1].nota1 = 6.0;
+ alunos[1].nota2 = 5.5;
+ alunos[1].nota3 = 4.0;
+
+ alunos[2].nome = "Carlos";
+ alunos[2].nota1 = 9.0;
+ alunos[2].nota2 = 8.5;
+ alunos[2].nota3 = 9.5;
+
+ // Exibindo todos os alunos
+ cout << "Relatório de Alunos:" << endl;
+ for (int i = 0; i < 3; i++) {
+ alunos[i].exibirAluno();
+ }
+
+ return 0;
+}
