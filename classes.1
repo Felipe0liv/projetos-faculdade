@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Retangulo {
+public: 
+ float largura; 
+ float altura; 
+ float area;
+
+ area= largura * altura;
+
+ void calcularArea() {
+ cout << "VALOR DA ÁREA: " << area << endl;
+ }
+};
+
+int main() {
+
+ Retangulo area;
+
+
+ area.largura = 50;
+ area.altura = 25;
+
+
+ area.calcularArea();
+
+ return 0;
+}
