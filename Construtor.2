@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class ContaBancaria {
+public:
+ int num;
+ string tit;
+ float saldo;
+
+ 
+ ContaBancaria() {
+ 
+ num = 0;
+ tit = "sem titular";
+ saldo = 0.0;
+ }
+
+ 
+ ContaBancaria(string t, int n) {
+
+ tit = t;
+ num = n;
+ saldo = 0.0;
+ }
+
+
+ ContaBancaria(string t, int n, float s) {
+
+ tit = t;
+ num = n;
+ saldo = s;
+ }
+
+ void exibirconta() {
+ cout << "Titular: " << tit << endl;
+ cout << "Número da conta: " << num << endl;
+ cout << "saldo: " << saldo << endl;
+ 
+ }
+};
+int main() {
+
+ ContaBancaria conta1; 
+ 
+ ContaBancaria conta2("man", 582); 
+ 
+ ContaBancaria conta3("jão", 283, 90.00); 
+
+ conta1.exibirconta();
+ conta2.exibirconta();
+ conta3.exibirconta();
+
+ return 0;
+}
