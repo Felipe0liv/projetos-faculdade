@@ -1,0 +1,118 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Livro {
+public:
+ string titulo;
+ string autor;
+ int paginas;
+ bool emprestado;
+
+ // Contador estático de livros
+ static int totalLivros;
+
+ // Construtor sem parâmetros
+ Livro() {
+ titulo = "Sem título";
+ autor = "Autor desconhecido";
+ paginas = 0;
+ emprestado = false;
+ totalLivros++;
+ cout << "Livro vazio criado. Total: " << totalLivros << endl;
+ }
+
+ // Construtor com parâmetros
+ Livro(string t, string a, int p) {
+ titulo = t;
+ autor = a;
+ paginas = p;
+ emprestado = false;
+ totalLivros++;
+ cout << "Livro '" << titulo << "' criado. Total: " << totalLivros
+<< endl;
+ }
+
+ // Destrutor
+ ~Livro() {
+ totalLivros--;
+ cout << "Livro '" << titulo << "' removido. Total: " <<
+totalLivros << endl;
+ }
+
+ // Método estático
+ static void mostrarTotal() {
+ cout << "Total de livros na biblioteca: " << totalLivros << endl;
+ }
+
+ // Funções sobrecarregadas para emprestar
+ void emprestar() {
+ if (!emprestado) {
+ emprestado = true;
+ cout << "Livro '" << titulo << "' emprestado!" << endl;
+ } else {
+ cout << "Livro '" << titulo << "' já está emprestado!" <<
+endl;
+ }
+ }
+
+ void emprestar(string pessoa) {
+ if (!emprestado) {
+ emprestado = true;
+ cout << "Livro '" << titulo << "' emprestado para " << pessoa
+<< "!" << endl;
+ } else {
+ cout << "Livro '" << titulo << "' já está emprestado!" <<
+endl;
+ }
+ }
+
+ // Função que modifica por referência
+ void devolver() {
+ emprestado = false;
+ cout << "Livro '" << titulo << "' devolvido!" << endl;
+ }
+
+ void exibirInfo() {
+ cout << "Título: " << titulo << endl;
+ cout << "Autor: " << autor << endl;
+ cout << "Páginas: " << paginas << endl;
+ cout << "Status: " << (emprestado ? "Emprestado" : "Disponível")
+<< endl;
+ cout << "---" << endl;
+ }
+};
+// Inicializando variável estática
+int Livro::totalLivros = 0;
+int main() {
+ cout << "=== SISTEMA DE BIBLIOTECA ===" << endl;
+
+ Livro::mostrarTotal();
+
+ {
+ Livro livro1; // Construtor sem parâmetros
+ Livro livro2("Dom Casmurro", "Machado de Assis", 200);
+ Livro livro3("O Cortiço", "Aluísio Azevedo", 300);
+
+ Livro::mostrarTotal();
+
+ livro1.exibirInfo();
+ livro2.exibirInfo();
+
+ // Testando sobrecarga
+ livro2.emprestar();
+ livro3.emprestar("Maria");
+
+ livro2.exibirInfo();
+ livro3.exibirInfo();
+
+ // Devolvendo livros
+ livro2.devolver();
+ livro3.devolver();
+
+ cout << "Fim do bloco - livros serão removidos" << endl;
+ } // Destrutores chamados aqui
+
+ Livro::mostrarTotal();
+
+ return 0;
+}
