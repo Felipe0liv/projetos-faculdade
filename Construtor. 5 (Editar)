@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Calculadora {
+public:
+ // Função 1: soma dois inteiros
+ int somar(int a, int b) {
+ cout << "Soma de inteiros: ";
+ return a + b;
+ }
+
+ // Função 2: soma dois doubles
+ double somar(double a, double b) {
+ cout << "Soma de decimais: ";
+ return a + b;
+ }
+
+ // Função 3: soma três inteiros
+ int somar(int a, int b, int c) {
+ cout << "Soma de três inteiros: ";
+ return a + b + c;
+ }
+
+ // Função 4: concatena duas strings
+ string somar(string a, string b) {
+ cout << "Concatenação: ";
+ return a + " " + b;
+ }
+};
+int main() {
+ Calculadora calc;
+
+ cout << calc.somar(5, 3) << endl;
+ cout << calc.somar(2.5, 3.7) << endl;
+ cout << calc.somar(1, 2, 3) << endl;
+ cout << calc.somar("Olá", "Mundo") << endl;
+
+ return 0;
+}
