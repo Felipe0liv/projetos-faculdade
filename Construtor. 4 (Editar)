@@ -1,54 +1,71 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 class Contador {
 public:
- string nome;
+    string nome;
+    int sal;
 
- // Variável estática - pertence à classe, não ao objeto
- static int totalObjetos;
+    static int totalObjetos;
 
- // Construtor
- Contador(string n) {
- nome = n;
- totalObjetos++; // Incrementa o contador estático
- cout << "Criado: " << nome << " (Total: " << totalObjetos << ")"
-<< endl;
- }
+    Contador(string n, int s) {
+        nome = n;
+        sal = s;
+        totalObjetos++;
 
- // Destrutor
- ~Contador() {
- totalObjetos--; // Decrementa o contador estático
- cout << "Destruído: " << nome << " (Total: " << totalObjetos <<
-")" << endl;
- }
+        cout << nome
+             << " salario: " << sal
+             << " Berries "
+             << " (Total: " << totalObjetos << ")"
+             << endl;
+    }
 
- // Método estático - pode ser chamado sem criar objeto
- static void mostrarTotal() {
- cout << "Total de objetos: " << totalObjetos << endl;
- }
+    ~Contador() {
+        totalObjetos--;
+
+        cout << "Destruído: " << nome
+             << " (Total: " << totalObjetos << ")"
+             << endl;
+    }
+
+    static void mostrarTotal() {
+        cout << "Total de objetos: " << totalObjetos << endl;
+    }
 };
-// Inicializando a variável estática (fora da classe)
+
 int Contador::totalObjetos = 0;
+
 int main() {
- cout << "Início do programa" << endl;
- Contador::mostrarTotal(); // Chamando método estático
+    cout << "Início do programa" << endl;
 
- {
- Contador obj1("Primeiro");
- Contador obj2("Segundo");
- Contador::mostrarTotal();
+    Contador::mostrarTotal();
 
- {
- Contador obj3("Terceiro");
- Contador::mostrarTotal();
- } // obj3 destruído aqui
+    {
+        Contador obj1("goku", 30);
+        Contador obj2("luffY", 1000000);
 
- Contador::mostrarTotal();
- } // obj1 e obj2 destruídos aqui
+        Contador::mostrarTotal();
 
- Contador::mostrarTotal();
- cout << "Fim do programa" << endl;
+        {
+            Contador obj3("naruto", 1200);
+            Contador obj4("tanjiro", 1800);
 
- return 0;
+            Contador::mostrarTotal();
+        }
+
+        {
+            Contador obj5("BRUNO ARRASCAETA RIBEIRO GOL", 2019);
+
+            Contador::mostrarTotal();
+        }
+
+        Contador::mostrarTotal();
+    }
+
+    Contador::mostrarTotal();
+
+    cout << "Fim do programa" << endl;
+
+    return 0;
 }
