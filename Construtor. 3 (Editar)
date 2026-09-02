@@ -2,49 +2,35 @@
 #include <string>
 using namespace std;
 
-class Arquivo {
+class Conectado {
 public:
- string nome;
- bool aberto;
+    bool aberto;
 
- // Construtor
- Arquivo(string n) {
- nome = n;
- aberto = true;
- cout << "Arquivo '" << nome << "' aberto com sucesso!" << endl;
- }
+ 
+    Conectado() {
+        aberto = true;
+        cout << "Conectado com sucesso!" << endl;
+    }
 
- // Destrutor - mesmo nome da classe com ~ na frente
- ~Arquivo() {
- if (aberto) {
- cout << "Fechando arquivo '" << nome << "'..." << endl;
- aberto = false;
- }
- }
 
- void escrever(string texto) {
- if (aberto) {
- cout << "Escrevendo no arquivo: " << texto << endl;
- } else {
- cout << "Erro: arquivo fechado!" << endl;
- }
- }
+    ~Conectado() {
+        if (aberto) {
+            cout << "Desconectado..." << endl;
+            aberto = false;
+        }
+    }
 };
 
-
 int main() {
- cout << "Iniciando programa..." << endl;
+    cout << "Conectando..." << endl;
 
- {
- // Criando objeto dentro de um bloco
- Arquivo arquivo("dados.txt");
- arquivo.escrever("Primeira linha");
- arquivo.escrever("Segunda linha");
+    {   
+        Conectado conexao;
 
- cout << "Fim do bloco - objeto será destruído" << endl;
- } // Destrutor chamado aqui automaticamente!
+        cout << "Fim da conexão - você será desconectado" << endl;
+    } 
 
- cout << "Programa terminando..." << endl;
+    cout << "Desconectado" << endl;
 
- return 0;
+    return 0;
 }
