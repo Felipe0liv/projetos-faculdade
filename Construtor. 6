@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+class TesteParametros {
+public:
+    int z;
+
+    void dobrarPorValor(int x, int y) {
+        z = x;
+        x = y;
+        y = z;
+
+        cout << "Dentro da função (valor 1): " << x
+             << " Dentro da função (valor 2): " << y << endl;
+    }
+
+    void dobrarPorReferencia(int &x, int &y) {
+        z = x;
+        x = y;
+        y = z;
+
+        cout << "Dentro da função ref (valor 1): " << x
+             << " Dentro da função ref (valor 2): " << y << endl;
+    }
+};
+
+int main() {
+    TesteParametros teste;
+
+    int numero = 5, num = 10;
+
+    cout << "Antes (valor 1): " << numero
+         << " Antes (valor 2): " << num << endl;
+
+    teste.dobrarPorValor(numero, num);
+
+    cout << "Depois (valor 1): " << numero
+         << " Depois (valor 2): " << num << endl;
+
+    cout << endl;
+
+    numero = 5;
+    num = 10;
+
+    cout << "Antes (valor por ref 1): " << numero
+         << " Antes (valor por ref 2): " << num << endl;
+
+    teste.dobrarPorReferencia(numero, num);
+
+    cout << "Depois (valor por ref 1): " << numero
+         << " Depois (valor por ref 2): " << num << endl;
+
+    return 0;
+}
