@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class Astronauta {
+private:
+    string cpf;
+    string nome;
+    int idade;
+    bool vivo;
+    bool disponivel;
+
+public:
+    Astronauta(string c, string n, int id) {
+        // você preenche
+    }
+};
+
+class Voo {
+private:
+    int codigo;
+    string estado;
+    vector<string> cpfs;
+
+public:
+    Voo(int c) {
+        // você preenche
+    }
+};
+
+class Agencia {
+private:
+    vector<Astronauta> astronautas;
+    vector<Voo> voos;
+
+public:
+    // você preenche
+};
+
+int main() {
+
+    return 0;
+}
