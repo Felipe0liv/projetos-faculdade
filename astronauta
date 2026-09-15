@@ -12,9 +12,15 @@ private:
     bool disponivel;
 
 public:
-    Astronauta(string c, string n, int id) {
-        // você preenche
-    }
+    Astronauta(string cpf, string nome, int idade);
+    string getCpf();
+    string getNome();
+    int getIdade();
+    bool estaVivo();
+    bool estaDisponivel();
+    void embarcar();
+    void desembarcar(); 
+    void morrer(); 
 };
 
 class Voo {
@@ -24,9 +30,17 @@ private:
     vector<string> cpfs;
 
 public:
-    Voo(int c) {
-        // você preenche
-    }
+    Voo(int codigo);
+    int getCodigo();
+    string getEstado();
+    int getQuantidadeAstronautas();
+    string getCpf(int posicao);
+    bool temAstronauta(string cpf);
+    void adicionarAstronauta(string cpf);
+    bool removerAstronauta(string cpf); 
+    void lancar();
+    void explodir();
+    void finalizar();
 };
 
 class Agencia {
@@ -34,8 +48,19 @@ private:
     vector<Astronauta> astronautas;
     vector<Voo> voos;
 
+    int buscarAstronauta(string cpf); 
+    int buscarVoo(int codigo); 
+
 public:
-    // você preenche
+    void cadastrarAstronauta(string cpf, string nome, int idade);
+    void cadastrarVoo(int codigo);
+    void adicionarAstronauta(string cpf, int codigo);
+    void removerAstronauta(string cpf, int codigo);
+    void lancarVoo(int codigo);
+    void explodirVoo(int codigo);
+    void finalizarVoo(int codigo);
+    void listarVoos();
+    void listarMortos();
 };
 
 int main() {
